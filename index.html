@@ -78,6 +78,7 @@
             <option value="relief">色別標高図</option>
             <option value="sekisyoku">赤色立体地図</option>
             <option value="hillshade">陰影起伏図</option>
+            <option value="slopemap">傾斜量図</option>
             <option value="seamlessphoto">全国最新写真(ｼｰﾑﾚｽ)</option>
         </select>
     </div>
@@ -173,6 +174,7 @@
             map.setPaintProperty('sekisyoku', 'raster-opacity', parseInt(e.target.value, 10) / 100);
             map.setPaintProperty('hillshade', 'raster-opacity', parseInt(e.target.value, 10) / 100);
             map.setPaintProperty('seamlessphoto', 'raster-opacity', parseInt(e.target.value, 10) / 100);
+            map.setPaintProperty('slopemap', 'raster-opacity', parseInt(e.target.value, 10) / 100);
             tilessliderOpactiyValue.textContent = e.target.value + '%';
         });
 
@@ -191,6 +193,7 @@
             if (map.getLayer('sekisyoku')) { map.setLayoutProperty('sekisyoku', 'visibility', 'none'); }
             if (map.getLayer('hillshade')) { map.setLayoutProperty('hillshade', 'visibility', 'none'); }
             if (map.getLayer('seamlessphoto')) { map.setLayoutProperty('seamlessphoto', 'visibility', 'none'); }
+            if (map.getLayer('slopemap')) { map.setLayoutProperty('slopemap', 'visibility', 'none'); }
 
             // レイヤを表示
             if (currentLayerName === 'relief') {
@@ -205,6 +208,9 @@
             } else if (currentLayerName === 'seamlessphoto') {
                 map.setLayoutProperty('seamlessphoto', 'visibility', 'visible');
                 map.setPaintProperty('seamlessphoto', 'raster-opacity', 1);
+            } else if (currentLayerName === 'slopemap') {
+                map.setLayoutProperty('slopemap', 'visibility', 'visible');
+                map.setPaintProperty('slopemap', 'raster-opacity', 1);
             }
 
             // 不透明度の初期表示

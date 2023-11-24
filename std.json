@@ -45,6 +45,14 @@
 			],
 			"attribution": "<a href='https://maps.gsi.go.jp/development/ichiran.html#seamlessphoto' target='_blank'>全国最新写真（シームレス）</a>",
 			"tileSize": 256
+		},
+		"sl": {
+			"type": "raster",
+			"tiles": [
+				"https://cyberjapandata.gsi.go.jp/xyz/slopemap/{z}/{x}/{y}.png"
+			],
+			"attribution": "<a href='https://maps.gsi.go.jp/development/ichiran.html#slopezone1map' target='_blank'>地理院タイル（傾斜量図）</a>",
+			"tileSize": 256
 		}
 	},
 	"layers": [
@@ -111,6 +119,17 @@
 			"id": "seamlessphoto",
 			"type": "raster",
 			"source": "p",
+			"layout": {
+				"visibility": "none"
+			},
+			"paint": {
+				"raster-opacity": 1
+			}
+		},
+		{
+			"id": "slopemap",
+			"type": "raster",
+			"source": "sl",
 			"layout": {
 				"visibility": "none"
 			},
